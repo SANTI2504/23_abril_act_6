@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//rutas de employees
+//ruta tipo get para index
 Route::get('empleados', [EmployeeController::class, 'index']);
+
+//rutta tipo get para create
+Route::get('empleados/crear', [EmployeeController::class, 'create']);
+
+//ruta tipo post para store
+Route::post('empleados',[EmployeeController::class, 'store']);
 
 
 // rutas de Company
@@ -37,4 +45,7 @@ Route::put('empresas/{id}',[CompanyController::class, 'update']);
 
 //ruta de tipo delete para destroy
 Route::delete('empresas/{id}',[CompanyController::class, 'destroy']);
+
+
+
 

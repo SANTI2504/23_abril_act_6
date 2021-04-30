@@ -17,8 +17,10 @@ class Employee extends Model
         'email',
         'document',
         'gender',
-
+        'companies_id'
     ];
+
+
 
 
 

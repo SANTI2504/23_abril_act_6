@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {   // retorna una vista html
-    protected function index(){
+    public function index(){
         // declaramos variable para el modelo User
         // generamos una consulta: "select * from user"
         // el "paginate()" es para mostrar los datos en n cantidad de vistas
@@ -18,13 +18,13 @@ class CompanyController extends Controller
     }
 
     //formulario retorna una vista html
-    protected function create(){
+    public function create(){
         return view('company.create');
     }
 
     //retorna una respuesta true or false
     // usamos la funcion global-> request que se encarga de tomar la data de lo que esta llegando
-    protected function store(Request $request){
+    public function store(Request $request){
 
         // crear variabla del modelo Company con su funcion create
         // sql: INSERT INTO usuarios () VALUE ()
@@ -34,7 +34,7 @@ class CompanyController extends Controller
         return redirect('empresas')->with('status', 'se ha creado una empresa exitosamente' )->with('type', 'success');
     }
     // retorna una vista html
-    protected function show($id){
+    public function show($id){
         // consulta para que traiga todos los datos por id esto se hace por medio de la funcion find
         // sql: SELECT * FROM users WHERE id = ?
         $company = Company::find($id);
@@ -43,7 +43,7 @@ class CompanyController extends Controller
 
     }
     // retorna una vista html
-    protected function edit($id){
+    public function edit($id){
         // consulta para que traiga todos los datos por id
         // SELECT * FROM users WHERE ID = ?
         $company = Company::find($id);
@@ -52,7 +52,7 @@ class CompanyController extends Controller
         return view('company.edit',compact('company'));
     }
 
-    protected function update(Request $request, $id){
+    public function update(Request $request, $id){
 
         $company = Company::find($id)-> update($request->all());
 
@@ -63,7 +63,7 @@ class CompanyController extends Controller
     //retornara una respuesta true or false
     //se necesitara de un id pára saber a quien se va a actualizar
     // usamos la funcion global-> request que se encarga de tomar la data que esta llegando
-    protected function destroy($id){
+    public function destroy($id){
         // sql: DELETE FROM users WHERE id =?
         // consulta para eliminar todos los datos segun el parametro id
         $company = Company::find($id)->delete();

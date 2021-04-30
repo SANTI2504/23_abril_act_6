@@ -7,14 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Listado de usuarios</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+    <title>Listado de empleados</title>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col mt-5" >
 
-            <table class="table table-dark table-hover">
+            <a class="btn btn-primary mb-3" href="{{url('empleados/crear')}}">Crear nuevo empleado</a>
+
+            <table class="table table-success table-hover">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -24,6 +27,7 @@
                     <th scope="col">DOCUMENTO </th>
                     <th scope="col">GENERO </th>
                     <th scope="col">EMPRESA </th>
+                    <th scope="col">OPCIONES </th>
 
                 </tr>
                 </thead>
@@ -38,7 +42,15 @@
                         <td>{{$employee-> email}}</td>
                         <td>{{$employee-> document}}</td>
                         <td>{{$employee-> gender}}</td>
-                        <td> (empresa)</td>
+                        <td> {{$employee-> companies_id}}</td>
+
+                        <td>
+                            <form action="">
+                                <a class="btn btn-sm btn-info mb-2" href=""><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-sm btn-warning mb-2" href=""><i class="fas fa-pen-square"></i></a>
+                                <button class="btn btn-sm btn-danger mb-2"><i class="far fa-trash-alt"></i></button>
+                            </form>
+                        </td>
 
                     </tr>
                 @endforeach

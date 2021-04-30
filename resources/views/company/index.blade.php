@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
     <title>Listado de empresas</title>
 </head>
 <body>
@@ -27,8 +27,9 @@
                 <tr>
                     <th class="col-1" scope="col">ID</th>
                     <th class="col-2" scope="col">NOMBRE</th>
-                    <th class="col-5" scope="col">DESCRIPCION</th>
+                    <th class="col-4" scope="col">DESCRIPCION</th>
                     <th class="col-2" scope="col">TELEFONO</th>
+                    <th class="col-1" scope="col">NIT</th>
                     <th class="col-2 text-center" scope="col">OPCIONES</th>
 
                 </tr>
@@ -42,6 +43,7 @@
                         <td>{{$company-> name}}</td>
                         <td>{{$company-> description}}</td>
                         <td>{{$company-> phone}}</td>
+                        <td>{{$company-> nit}}</td>
                         <td class="text-center ">
                             <form class="" action="{{url('empresas', $company -> id)}}" method="post">
                                 @csrf
