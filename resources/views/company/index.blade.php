@@ -19,8 +19,12 @@
                 {{session('status')}}
             </div>
             @endif
+                <div class="col d-flex justify-content-between" >
+                    <a class="btn btn-primary mb-3" href="{{url('empresas/crear')}}">Crear nueva empresa</a>
+                    <a class="btn btn-link mb-3" href="{{url('empleados')}}">ir a lista de empleados</a>
 
-            <a class="btn btn-primary mb-3" href="{{url('empresas/crear')}}">Crear nueva empresa</a>
+                </div>
+
 
             <table class="table table-primary  table-hover">
                 <thead>

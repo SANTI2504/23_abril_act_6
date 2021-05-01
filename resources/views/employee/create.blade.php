@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Creacion de empleado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
@@ -17,6 +17,7 @@
                 <div class="card-body">
                     <form action="{{url('empleados')}}" method="post">
                         @csrf
+
                         <div class="mb-3">
                             <label for="" class="form-label">Nombre</label>
                             <input type="text" class="form-control mb-3" name="name" id="name" >
@@ -44,7 +45,7 @@
 
                             <button class="btn btn-success " type="submit">Crear nuevo empleado</button>
 
-                            <a href="{{url('company')}}">volver a empleados</a>
+                            <a href="{{url('empleados')}}">volver a empleados</a>
 
                         </div>
 

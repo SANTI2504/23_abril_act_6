@@ -14,9 +14,16 @@
 <div class="container">
     <div class="row">
         <div class="col mt-5" >
+            @if(session('status'))
+            <div class="alert alert-{{session('type')}}" role="alert">
+                {{session('status')}}
+            </div>
+            @endif
 
-            <a class="btn btn-primary mb-3" href="{{url('empleados/crear')}}">Crear nuevo empleado</a>
-
+            <div class="col d-flex justify-content-between" >
+                <a class="btn btn-primary mb-3" href="{{url('empleados/crear')}}">Crear nuevo empleado</a>
+                <a class="btn btn-link mb-3" href="{{url('empresas')}}">ir a lista de empresas</a>
+            </div>
             <table class="table table-success table-hover">
                 <thead>
                 <tr>
@@ -45,9 +52,11 @@
                         <td> {{$employee-> companies_id}}</td>
 
                         <td>
-                            <form action="">
-                                <a class="btn btn-sm btn-info mb-2" href=""><i class="fas fa-eye"></i></a>
-                                <a class="btn btn-sm btn-warning mb-2" href=""><i class="fas fa-pen-square"></i></a>
+                            <form action="{{url('empleados', $employee->id)}}" method="post">
+                                @method('delete')
+                                @csrf
+                                <a class="btn btn-sm btn-info mb-2" href="{{url('empleados',$employee->id)}}"><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-sm btn-warning mb-2" href="{{url('empleados/editar', $employee ->id)}}"><i class="fas fa-pen-square"></i></a>
                                 <button class="btn btn-sm btn-danger mb-2"><i class="far fa-trash-alt"></i></button>
                             </form>
                         </td>

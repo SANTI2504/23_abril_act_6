@@ -34,9 +34,33 @@ class EmployeeController extends Controller
         // se llama la variable request trayendo toda la data e insertandolo
         $employee =Employee::create($request->all());
 
-        return redirect('empleados');
+        return redirect('empleados')->with('status', 'Se ha creado un nuevo empleado exitosamente')->with('type', 'success');
     }
 
+    public function edit ($id){
+        $employee = Employee::find($id);
+        $companies = Company::all();
+
+        return view('employee.edit', compact('employee','companies'));
+    }
+
+    public function update( Request $request, $id){
+        $employee = Employee::find($id)->update($request->all());
+
+        return redirect('empleados')->with('status', 'Se ha actualizado el empleado exitosamente    ')->with('type', 'warning');
+    }
+
+    public function show($id){
+        $employee = Employee::find($id);
+
+        return view('employee.show',compact('employee'));
+    }
+
+    public function destroy($id){
+        $employee = Employee::destroy($id);
+
+        return redirect('empleados')->with('status', 'Se ha eliminado el empleado exitosamente  ')->with('type', 'danger');
+    }
 
 
 

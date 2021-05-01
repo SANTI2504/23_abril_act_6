@@ -1,8 +1,8 @@
 <?php
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\EmployeeController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//ruta raiz
+Route::redirect('/', 'empleados');
+
 //rutas de employees
 //ruta tipo get para index
 Route::get('empleados', [EmployeeController::class, 'index']);
@@ -22,6 +26,18 @@ Route::get('empleados/crear', [EmployeeController::class, 'create']);
 
 //ruta tipo post para store
 Route::post('empleados',[EmployeeController::class, 'store']);
+
+//ruta de tipo get para edit
+Route::get('empleados/editar/{id}', [EmployeeController::class, 'edit']);
+
+//ruta de tipo put para update
+Route::put('empleados/{id}',[EmployeeController::class, 'update']);
+
+//ruta de tipo get para show
+Route::get('empleados/{id}', [EmployeeController::class, 'show']);
+
+//ruta de tipo delete para destroy
+Route::delete('empleados/{id}', [EmployeeController::class, 'destroy']);
 
 
 // rutas de Company
@@ -45,6 +61,8 @@ Route::put('empresas/{id}',[CompanyController::class, 'update']);
 
 //ruta de tipo delete para destroy
 Route::delete('empresas/{id}',[CompanyController::class, 'destroy']);
+
+
 
 
 
